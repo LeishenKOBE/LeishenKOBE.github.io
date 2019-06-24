@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="">
+<html class="theme-next muse use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -163,7 +163,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -195,7 +195,7 @@
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="Navigationsleiste an/ausschalten">
+    <button aria-label="切换导航栏">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -223,7 +223,7 @@
 
     
 
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>Startseite</a>
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>首页</a>
 
   </li>
         
@@ -240,11 +240,19 @@
 
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>Archiv</a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>归档</a>
 
   </li>
 
       
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br/>搜索</a>
+        </li>
       
     </ul>
   
@@ -254,6 +262,29 @@
 
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
   
 </nav>
 
@@ -292,12 +323,12 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="sdzfsl.design/2019/04/26/移动端问题填坑/"/>
+    <link itemprop="mainEntityOfPage" href="sdzfsl.design/2019/06/24/JavaScript那些奇技淫巧/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="无与杰嵩"/>
       <meta itemprop="description" content="记录个人的全栈发展"/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
+      <meta itemprop="image" content="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3353218633,3745714321&fm=58&bpow=640&bpoh=640"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -312,7 +343,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/04/26/移动端问题填坑/" class="post-title-link" itemprop="url">移动端问题填坑</a>
+                <a href="/2019/06/24/JavaScript那些奇技淫巧/" class="post-title-link" itemprop="url">JavaScript那些奇技淫巧</a>
               
             
           </h1>
@@ -330,14 +361,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
 
               
                 
               
 
-              <time title="Erstellt: 2019-04-26 10:22:43 / Geändert am: 10:43:20" itemprop="dateCreated datePublished" datetime="2019-04-26T10:22:43+08:00">2019-04-26</time>
+              <time title="创建时间：2019-06-24 23:44:14 / 修改时间：23:45:06" itemprop="dateCreated datePublished" datetime="2019-06-24T23:44:14+08:00">2019-06-24</time>
             
 
             
@@ -379,6 +410,184 @@
         
           
             <ol>
+<li><p>向下取整最快的方式<br>向下取整的方式有很多，比如有Math.floor,parseInt都可以，不过两个非(~)运算符最方便，而且逻辑运算很快。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~~<span class="number">3.14</span>       <span class="comment">//得到的结果是3</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>转数值类型最快的方法<br>转数字类型的方法也有很多，parseFloat,Number(),但是官方推荐直接用一个加号运算符，是最快最简洁的</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">+‘<span class="number">123</span>’</div><div class="line">&gt; <span class="number">123</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>=== 比 == 快</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">==和!=操作符会在需要的情况下自动转换数据类型。但===和!==不会，它们会同时比较值和数据类型, 避免了多余的计算，这也使得它们要比==和!=快。现在人很少利用==来做类型转换了, JS也有往强类型发展的趋势.</div></pre></td></tr></table></figure>
+</li>
+<li><p>最安全的交换变量<br>如何不借助第三个变量或者容器交换两个变量a和b的值呢？最简单快速的方法是异或门(^)来进行：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> a =<span class="number">12</span>;</div><div class="line"><span class="keyword">let</span> b = <span class="number">123</span>;</div><div class="line">a = a ^ b;</div><div class="line">b = a ^ b;</div><div class="line">a = a ^ b;</div></pre></td></tr></table></figure>
+<p>最直观的是解构的方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[a,b] = [b,a]</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>5.获取指定范围呢均匀分布的随机数：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> x = <span class="built_in">Math</span>.random() * (max - min) + min;</div></pre></td></tr></table></figure></p>
+<p>6.最快生成[1,2,3,…,n]的数组<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Array</span>(<span class="number">10</span>).fill(<span class="literal">true</span>).map(<span class="function">(<span class="params">x,i</span>)=&gt;</span>i+<span class="number">1</span>)</div></pre></td></tr></table></figure></p>
+<p>7.打乱数组<br>在对数组进行排序的时候引入一个随机量<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> list = [<span class="number">5</span>, <span class="number">458</span> , <span class="number">120</span> , <span class="number">-215</span> , <span class="number">228</span> , <span class="number">400</span> , <span class="number">122205</span>, <span class="number">-85411</span>];</div><div class="line"> </div><div class="line">list.sort(<span class="function"><span class="params">()</span>=&gt;</span><span class="built_in">Math</span>.random()<span class="number">-0.5</span>)</div><div class="line"> </div><div class="line">&gt; (<span class="number">8</span>) [<span class="number">120</span>, <span class="number">122205</span>, <span class="number">458</span>, <span class="number">400</span>, <span class="number">5</span>, <span class="number">-215</span>, <span class="number">-85411</span>, <span class="number">228</span>]</div></pre></td></tr></table></figure></p>
+<p>8.数组聚合<br>Array.prototype.reduce是一个对列表进行摘要的算法(输入多个元素, 输出一个值), 比如数值列表求和:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">list.reduce(<span class="function">(<span class="params">sum, curr</span>)=&gt;</span>sum+curr,<span class="number">0</span>)</div></pre></td></tr></table></figure></p>
+<p>9.数组遍历取代循环语句<br>函数式编程中可以利用Array的forEach, map, filter, some, every, find来取代传统的for循环, while循环, 不仅更优雅, 而且提升了一定效率。</p>
+<p>10.最快构造一个循环链表<br>每次执行一下list.push(list.shift());然后访问list[0], 无需额外代码, 最直接实现循环链表, 帅!<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> list = [<span class="number">5</span>, <span class="number">458</span> , <span class="number">120</span> , <span class="number">-215</span> , <span class="number">228</span> , <span class="number">400</span> , <span class="number">122205</span>, <span class="number">-85411</span>];</div><div class="line"> </div><div class="line">list.push(list.shift());</div><div class="line"> </div><div class="line">list[<span class="number">0</span>];</div><div class="line"> </div><div class="line">&gt; <span class="number">458</span></div><div class="line"> </div><div class="line">list.push(list.shift());</div><div class="line"> </div><div class="line">list[<span class="number">0</span>];</div><div class="line"> </div><div class="line">&gt; <span class="number">120</span></div><div class="line"> </div><div class="line">list.push(list.shift());</div><div class="line"> </div><div class="line">list[<span class="number">0</span>];</div><div class="line"> </div><div class="line">&gt; <span class="number">-215</span></div></pre></td></tr></table></figure></p>
+<p>11.字典的键值对取代switch语句<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">    const day = 'Monday';</div><div class="line"> </div><div class="line">(&#123;</div><div class="line"> </div><div class="line">  'Monday':()=&gt;&#123;&#125;,</div><div class="line"> </div><div class="line">  'Wednesday':()=&gt;&#123;&#125;,</div><div class="line"> </div><div class="line">  'Friday':()=&gt;&#123;&#125;,[/font]</div><div class="line">[font=微软雅黑]</div><div class="line">  'default':()=&gt;&#123;&#125;,</div><div class="line"> </div><div class="line">&#125;)[ day || 'default' ];</div></pre></td></tr></table></figure></p>
+<p>12.利用Set对列表去重<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">    [...new <span class="built_in">Set</span>([<span class="number">42</span>, <span class="string">'foo'</span>, <span class="number">42</span>, <span class="string">'foo'</span>, <span class="literal">true</span>, <span class="literal">true</span>])]</div><div class="line"> </div><div class="line">&gt; (<span class="number">3</span>) [<span class="number">42</span>, <span class="string">"foo"</span>, <span class="literal">true</span>]</div></pre></td></tr></table></figure></p>
+<p>13.自定义toJSON方法(fuck原型)<br>将标准库的一些构造函数给他们赋予toJSON方法, 这样在JSON.stringify的时候就可以生成定制的json,而不是空的了, 这在http传输的时候会非常有用.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">Date.prototype.toJSON = function () &#123;</div><div class="line"> </div><div class="line">  return this.getTime();[/font]</div><div class="line">[font=微软雅黑]</div><div class="line">&#125;</div><div class="line"> </div><div class="line">Function.prototype.toJSON = function () &#123;</div><div class="line"> </div><div class="line">  return this.toString();</div><div class="line"> </div><div class="line">&#125;</div><div class="line"> </div><div class="line">RegExp.prototype.toJSON = function () &#123;</div><div class="line"> </div><div class="line">  return this.toString();</div><div class="line"> </div><div class="line">&#125;</div><div class="line"> </div><div class="line">JSON.stringify([new Date(),Array, /.*/]);</div><div class="line"> </div><div class="line">&gt; &quot;[1559795757062,&quot;function Array() &#123; [native code] &#125;&quot;,&quot;/.*/&quot;]&quot;</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="sdzfsl.design/2019/04/26/移动端问题填坑/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="无与杰嵩"/>
+      <meta itemprop="description" content="记录个人的全栈发展"/>
+      <meta itemprop="image" content="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3353218633,3745714321&fm=58&bpow=640&bpoh=640"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="自言君"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/04/26/移动端问题填坑/" class="post-title-link" itemprop="url">移动端问题填坑</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-26 10:22:43" itemprop="dateCreated datePublished" datetime="2019-04-26T10:22:43+08:00">2019-04-26</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-06-11 18:49:24" itemprop="dateModified" datetime="2019-06-11T18:49:24+08:00">2019-06-11</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <ol>
 <li><p>双击页面放大问题<br>需要在html添加如下代码</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"</span>&gt;</span></div></pre></td></tr></table></figure>
 </li>
@@ -387,44 +596,18 @@
 </li>
 <li><p>苹果手机输入框光标过长<br>不要给input加高度，加padding撑开就行了</p>
 </li>
-<li><p>取消苹果手机输入框自带阴影效果<br>苹果页面原生的输入框带有阴影，需要添加如下代码</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">input</span>&#123;</div><div class="line">    <span class="attribute">appearance</span>: none;</div><div class="line">    <span class="attribute">-webkit-appearance</span>: none;</div><div class="line">    <span class="attribute">outline</span>:none;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>安卓手机点击输入框，弹起的虚拟键盘会遮盖住输入框<br>主要的解决方法是对输入框进行事件监听，当弹起虚拟键盘的时候页面的可视高度会变小，监听变小事件，利用css3的样式即可解决</p>
+<li>取消苹果手机输入框自带阴影效果<br>苹果页面原生的输入框带有阴影，需要添加如下代码<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">input</span>&#123;</div><div class="line">    <span class="attribute">appearance</span>: none;</div><div class="line">    <span class="attribute">-webkit-appearance</span>: none;</div><div class="line">    <span class="attribute">outline</span>:none;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.body.addEventListener(<span class="string">'focus'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</div><div class="line">    focusElem = e.target || e.srcElement;</div><div class="line">&#125;, <span class="literal">true</span>);</div><div class="line"></div><div class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'resize'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    focusElem.scrollIntoView()</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>PS：React需要添加到生命周期中</p>
-<ol>
-<li>苹果端的position:absolute好像有点问题，在top:0;bottom:0;left:0;right:0;的情况下页面会消失，安卓端不会出现这种问题</li>
-<li>最简单的Rem适配解决方案<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">10px</span>&#125;</div><div class="line">@<span class="keyword">media</span> screen and (min-width:<span class="number">321px</span>) and (max-width:<span class="number">375px</span>)&#123;<span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">12px</span>&#125;&#125;</div><div class="line">@<span class="keyword">media</span> screen and (min-width:<span class="number">376px</span>) and (max-width:<span class="number">414px</span>)&#123;<span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">13px</span>&#125;&#125;</div><div class="line">@<span class="keyword">media</span> screen and (min-width:<span class="number">415px</span>) and (max-width:<span class="number">639px</span>)&#123;<span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">20px</span>&#125;&#125;</div><div class="line">@<span class="keyword">media</span> screen and (min-width:<span class="number">640px</span>) and (max-width:<span class="number">719px</span>)&#123;<span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">23px</span>&#125;&#125;</div><div class="line">@<span class="keyword">media</span> screen and (min-width:<span class="number">720px</span>) and (max-width:<span class="number">750px</span>)&#123;<span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">24px</span>&#125;&#125;</div><div class="line">@<span class="keyword">media</span> screen and (min-width:<span class="number">751px</span>) and (max-width:<span class="number">799px</span>)&#123;<span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">26px</span>&#125;&#125;</div><div class="line">@<span class="keyword">media</span> screen and (min-width:<span class="number">800px</span>)&#123;<span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">26px</span>&#125;&#125;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>8.苹果手机的光标随着页面滑动乱窜</p>
-<p>可以监听页面的滑动事件，在滑动的时候让光标隐藏</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.body.addEventListener(<span class="string">'touchmove'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(<span class="built_in">document</span>.activeElement)&#123;</div><div class="line">        <span class="built_in">document</span>.activeElement.blur();</div><div class="line">    &#125;</div><div class="line">&#125;,&#123;<span class="attr">passive</span>:<span class="literal">false</span>&#125;)</div></pre></td></tr></table></figure>
-<p>PS:与上边的同理，React可以放到componentDidMounted的生命周期里</p>
-<p>9.关于iPhone X及苹果异形屏的兼容</p>
-<p>想要全屏覆盖，需要在html代码中假如如下代码：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width,initial-scale=1,viewport-fit=cover"</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>使用CSS对安全区域进行判断并进行兼容<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">media</span> only screen and (device-width: <span class="number">375px</span>) and (device-height: <span class="number">812px</span>) and (-webkit-device-pixel-ratio: <span class="number">3</span>)&#123;</div><div class="line"></div><div class="line">    <span class="selector-tag">body</span>&#123;</div><div class="line">     <span class="attribute">padding-bottom</span>: <span class="built_in">constant</span>(safe-area-inset-bottom);</div><div class="line">     <span class="attribute">padding-bottom</span>: <span class="built_in">env</span>(safe-area-inset-bottom);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="selector-class">.iphonex-pt</span>&#123;</div><div class="line">     <span class="attribute">padding-top</span>: <span class="built_in">constant</span>(safe-area-inset-top);</div><div class="line">     <span class="attribute">padding-top</span>: <span class="built_in">env</span>(safe-area-inset-top);</div><div class="line">    &#125;</div><div class="line">    <span class="selector-class">.iphonex-pb</span>&#123;</div><div class="line">     <span class="attribute">padding-bottom</span>: <span class="built_in">constant</span>(safe-area-inset-bottom);</div><div class="line">     <span class="attribute">padding-bottom</span>: <span class="built_in">env</span>(safe-area-inset-bottom);</div><div class="line">    &#125;</div><div class="line">    <span class="selector-class">.iphonex-mt</span>&#123;</div><div class="line">     <span class="attribute">margin-top</span>: <span class="built_in">constant</span>(safe-area-inset-top);</div><div class="line">     <span class="attribute">margin-top</span>: <span class="built_in">env</span>(safe-area-inset-top);</div><div class="line">    &#125;</div><div class="line">    <span class="selector-class">.iphonex-mb</span>&#123;</div><div class="line">     <span class="attribute">margin-bottom</span>: <span class="built_in">constant</span>(safe-area-inset-bottom);</div><div class="line">     <span class="attribute">margin-bottom</span>: <span class="built_in">env</span>(safe-area-inset-bottom);</div><div class="line">    &#125;</div><div class="line">    <span class="selector-class">.iphonex-pl</span>&#123;</div><div class="line">     <span class="attribute">padding-left</span>: <span class="built_in">constant</span>(safe-area-inset-left);</div><div class="line">     <span class="attribute">padding-left</span>: <span class="built_in">env</span>(safe-area-inset-left);</div><div class="line">    &#125;</div><div class="line">    <span class="selector-class">.iphonex-pr</span>&#123;</div><div class="line">     <span class="attribute">padding-right</span>: <span class="built_in">constant</span>(safe-area-inset-right);</div><div class="line">     <span class="attribute">padding-right</span>: <span class="built_in">env</span>(safe-area-inset-right);</div><div class="line">    &#125;</div><div class="line">    <span class="selector-class">.iphonex-ml</span>&#123;</div><div class="line">     <span class="attribute">margin-left</span>: <span class="built_in">constant</span>(safe-area-inset-left);</div><div class="line">     <span class="attribute">margin-left</span>: <span class="built_in">env</span>(safe-area-inset-left);</div><div class="line">    &#125;</div><div class="line">    <span class="selector-class">.iphonex-mr</span>&#123;</div><div class="line">     <span class="attribute">margin-right</span>: <span class="built_in">constant</span>(safe-area-inset-right);</div><div class="line">     <span class="attribute">margin-right</span>: <span class="built_in">env</span>(safe-area-inset-right);</div><div class="line">    &#125;</div><div class="line">    <span class="selector-class">.iphonex-bd-top-bg</span>&#123;</div><div class="line">     <span class="attribute">border-top</span>: <span class="number">88px</span> solid transparent;</div><div class="line">    &#125;</div><div class="line">    <span class="selector-class">.iphonex-bd-top</span>&#123;</div><div class="line">     <span class="attribute">border-top</span>: <span class="number">44px</span> solid transparent;</div><div class="line">    &#125;</div><div class="line">    <span class="selector-class">.iphonex-bd-bottom</span>&#123;</div><div class="line">     <span class="attribute">border-bottom</span>: <span class="number">34px</span> solid transparent;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>还可以使用JS对机型进行判断，给底部增加安全区域的高度<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> u = navigator.userAgent;</div><div class="line"><span class="keyword">var</span> isIOS = !!u.match(<span class="regexp">/\(i[^;]+;( U;)? CPU.+Mac OS X/</span>);</div><div class="line"><span class="keyword">if</span>(screen.height == <span class="number">812</span> &amp;&amp; screen.width == <span class="number">375</span> || screen.height == <span class="number">896</span> &amp;&amp; screen.width == <span class="number">414</span>)&#123;</div><div class="line">   <span class="comment">//判断iPhone X和XR</span></div><div class="line">   $(<span class="string">".phonex-pb"</span>).css(<span class="string">"padding-bottom"</span>,<span class="string">"34px"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>10.虚拟键盘落下时，页面底部会出现键盘大小的灰色区域</p>
-<p>PS：ios12微信内部浏览器中这种情况最明显</p>
-<p>对页面的输入框进行失去焦点事件进行监听，当失去焦点的时候，让页面滚动回去，可以解决此问题</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.body.addEventListener(<span class="string">'blur'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</div><div class="line">    <span class="built_in">window</span>.scrollTo(<span class="number">0</span>, <span class="number">0</span>)</div><div class="line">&#125;, <span class="literal">true</span>);</div></pre></td></tr></table></figure>
-<ol>
-<li>position:fixed使底部栏固定在底部会出现样式问题，建议使用position:abdolute，需要注意的是，如果父元素使用flex布局，子元素使用position:absolute样式会出现问题。</li>
-<li>移动端的上中下三栏布局，推荐两种方法 </li>
-</ol>
-<p>（1）flex布局<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">'father'</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"top"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"center"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"bottom"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">html</span>,<span class="selector-tag">body</span>&#123;</div><div class="line">    <span class="attribute">height</span>:<span class="number">100%</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.father</span>&#123;</div><div class="line">    <span class="attribute">display</span>:flex;</div><div class="line">    <span class="attribute">flex-direction</span>:column;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.top</span>,<span class="selector-class">.bottom</span>&#123;</div><div class="line">    <span class="attribute">height</span>:<span class="number">40px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.center</span>&#123;</div><div class="line">    <span class="attribute">flex</span>:<span class="number">1</span>;</div><div class="line">    <span class="attribute">width</span>:<span class="number">100%</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>(2)position:absolute方案<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">html</span>,<span class="selector-tag">body</span>&#123;</div><div class="line">    <span class="attribute">height</span>:<span class="number">100%</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.top</span>,<span class="selector-class">.bottom</span>&#123;</div><div class="line">    <span class="attribute">height</span>:<span class="number">40px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.top</span>&#123;</div><div class="line">    <span class="attribute">position</span>:absolute;</div><div class="line">    <span class="attribute">top</span>:<span class="number">0</span>;</div><div class="line">    <span class="attribute">left</span>:<span class="number">0</span>;</div><div class="line">    <span class="attribute">width</span>:<span class="number">100%</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.footer</span>&#123;</div><div class="line">    <span class="attribute">position</span>:absolute;</div><div class="line">    <span class="attribute">bottom</span>:<span class="number">0</span>;</div><div class="line">    <span class="attribute">left</span>:<span class="number">0</span>;</div><div class="line">    <span class="attribute">width</span>:<span class="number">100%</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.center</span>&#123;</div><div class="line">    <span class="attribute">position</span>:absolute;</div><div class="line">    <span class="attribute">z-index</span>:-<span class="number">1</span>;</div><div class="line">    <span class="attribute">top</span>:<span class="number">40px</span>;</div><div class="line">    <span class="attribute">bottom</span>:<span class="number">40px</span>;</div><div class="line">    <span class="attribute">left</span>:<span class="number">0</span>;</div><div class="line">    <span class="attribute">width</span>:<span class="number">100%</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>其中的center部分可以使用calc()计算属性来计算高度<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">.center&#123;</div><div class="line">    *&#123;</div><div class="line">            padding:0;</div><div class="line">            margin:0;</div><div class="line">        &#125;</div><div class="line">        .father&#123;</div><div class="line">            width:100%;</div><div class="line">            height:100%;</div><div class="line">        &#125;</div><div class="line">        .top&#123;</div><div class="line">            position: absolute;</div><div class="line">            left:0;</div><div class="line">            width: 100%;</div><div class="line">            top:0;</div><div class="line">            height:40px;</div><div class="line">            background:red;</div><div class="line">        &#125;</div><div class="line">        .bottom&#123;</div><div class="line">            position: absolute;</div><div class="line">            left:0;</div><div class="line">            width: 100%;</div><div class="line">            bottom:0;</div><div class="line">            height:40px;</div><div class="line">            background:blue;</div><div class="line">        &#125;</div><div class="line">        .center&#123;</div><div class="line">            width:100%;</div><div class="line">            height:calc(100vh - 80px);</div><div class="line">            background:yellow;</div><div class="line">            margin-top:40px;</div><div class="line">            margin-bottom:40px;</div><div class="line">            overflow:auto;</div><div class="line">        &#125;</div><div class="line">        //隐藏滚动条</div><div class="line">        .center::-webkit-scrollbar&#123;</div><div class="line">            display:none;</div><div class="line">        &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>PS：移动端布局强烈推荐统一使用flex布局，上中下三栏布局可以解决很多样式问题。</p>
-<p>目前遇到的问题就这么多，遇到其他的之后再进行整理。</p>
-<p>以上。</p>
-
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/04/26/移动端问题填坑/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -495,6 +678,10 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
+              <img class="site-author-image" itemprop="image"
+                src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3353218633,3745714321&fm=58&bpow=640&bpoh=640"
+                alt="无与杰嵩"/>
+            
               <p class="site-author-name" itemprop="name">无与杰嵩</p>
               <div class="site-description motion-element" itemprop="description">记录个人的全栈发展</div>
           </div>
@@ -506,14 +693,27 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">1</span>
-                    <span class="site-state-item-name">Artikel</span>
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
               
 
               
 
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
               
             </nav>
           
@@ -522,6 +722,43 @@
 
           
 
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/LeishenKOBE" title="GitHub &rarr; https://github.com/LeishenKOBE" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="/wuyujiesong@163.com" title="E-Mail &rarr; wuyujiesong@163.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://www.zhihu.com/people/shi-dong-zhao/activities" title="zhihu &rarr; https://www.zhihu.com/people/shi-dong-zhao/activities" rel="noopener" target="_blank"><i class="fa fa-fw fa-zhihu"></i>zhihu</a>
+                </span>
+              
+            </div>
           
 
           
@@ -564,7 +801,7 @@
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.2.2</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.2.2</div>
 
 
 
@@ -572,7 +809,7 @@
 
 
 
-  <div class="theme-info">Design – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.1.2</div>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.1.2</div>
 
 
 
@@ -593,6 +830,8 @@
     
       <div class="back-to-top">
         <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
         
       </div>
     
@@ -683,6 +922,326 @@
 
 
   
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
 
 
 
